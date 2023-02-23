@@ -85,7 +85,7 @@ private extension LocationView {
   }
 
   func configureCityLabelSpecs() {
-    cityLabel.font = .systemFont(ofSize: 14, weight: .bold)
+    cityLabel.font = .systemFont(ofSize: 12, weight: .bold)
   }
 
   func configureCityLabelConstraints() {

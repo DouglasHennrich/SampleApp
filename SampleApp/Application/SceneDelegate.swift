@@ -56,3 +56,37 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   }
 }
 
+#if DEBUG
+import FLEX
+extension UIViewController {
+  open override var canBecomeFirstResponder: Bool {
+    true
+  }
+
+  open override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+    if motion == .motionShake {
+      handleShake()
+      FLEXManager.shared.showExplorer()
+    }
+  }
+
+  func handleShake() {
+    UIView.addOrangeBordersInSubviews(view: self.view)
+  }
+}
+public extension UIView {
+  class func addOrangeBordersInSubviews(view: UIView) {
+    view.layer.borderColor = UIColor.orange.withAlphaComponent(0.6).cgColor
+    view.layer.borderWidth = 0.5
+
+    if view.layer.cornerRadius == 0 {
+      view.layer.cornerRadius = 2
+    }
+
+    for subview in view.subviews {
+      if subview.frame.height < 2 || subview.frame.width < 2 { continue }
+      addOrangeBordersInSubviews(view: subview)
+    }
+  }
+}
+#endif

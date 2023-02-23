@@ -27,6 +27,7 @@
 		C1D6CA9629A6F16200696E5D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D6CA8129A6F16200696E5D /* BaseViewController.swift */; };
 		C1D6CA9729A6F16200696E5D /* UIStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D6CA8329A6F16200696E5D /* UIStateView.swift */; };
 		C1D6CA9829A6F16200696E5D /* AppLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D6CA8729A6F16200696E5D /* AppLabel.swift */; };
+		C1D6CA9D29A6F8BF00696E5D /* MinMaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D6CA9C29A6F8BF00696E5D /* MinMaxView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		C1D6CA8129A6F16200696E5D /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C1D6CA8329A6F16200696E5D /* UIStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStateView.swift; sourceTree = "<group>"; };
 		C1D6CA8729A6F16200696E5D /* AppLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLabel.swift; sourceTree = "<group>"; };
+		C1D6CA9C29A6F8BF00696E5D /* MinMaxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinMaxView.swift; sourceTree = "<group>"; };
 		F1CD76C90EFED9B8079B12BB /* Pods-SampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.release.xcconfig"; path = "Target Support Files/Pods-SampleApp/Pods-SampleApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,17 +182,18 @@
 		C1D6CA6C29A6F16100696E5D /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				C1D6CA6D29A6F16100696E5D /* locationView */,
+				C1D6CA6D29A6F16100696E5D /* LocationView */,
+				C1D6CA9B29A6F8AD00696E5D /* MinMaxView */,
 			);
 			path = Components;
 			sourceTree = "<group>";
 		};
-		C1D6CA6D29A6F16100696E5D /* locationView */ = {
+		C1D6CA6D29A6F16100696E5D /* LocationView */ = {
 			isa = PBXGroup;
 			children = (
 				C1D6CA6E29A6F16100696E5D /* LocationView.swift */,
 			);
-			path = locationView;
+			path = LocationView;
 			sourceTree = "<group>";
 		};
 		C1D6CA6F29A6F16100696E5D /* View */ = {
@@ -322,6 +325,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		C1D6CA9B29A6F8AD00696E5D /* MinMaxView */ = {
+			isa = PBXGroup;
+			children = (
+				C1D6CA9C29A6F8BF00696E5D /* MinMaxView.swift */,
+			);
+			path = MinMaxView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -333,6 +344,8 @@
 				C1D6CA4529A6F07500696E5D /* Sources */,
 				C1D6CA4629A6F07500696E5D /* Frameworks */,
 				C1D6CA4729A6F07500696E5D /* Resources */,
+				C1D6CA9A29A6F51600696E5D /* SwiftLint */,
+				766653E5F5118C289FB9C108 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -389,6 +402,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		766653E5F5118C289FB9C108 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SampleApp/Pods-SampleApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SampleApp/Pods-SampleApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SampleApp/Pods-SampleApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A2982D4FCBA3255A40FCAD66 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -411,6 +441,25 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C1D6CA9A29A6F51600696E5D /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint > /dev/null; then\n  swiftlint --config https://gist.githubusercontent.com/Hennrich-Your-Dev/080932317f7203a828fbfc6e2a57b0c9/raw/c6163a864a4fcdcff6c8aaa0436b9ddb33f4fb2b/swiftlint.yaml\n  # swiftlint --config swiftlint.yaml\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -418,6 +467,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1D6CA9D29A6F8BF00696E5D /* MinMaxView.swift in Sources */,
 				C1D6CA8C29A6F16200696E5D /* MainViewModel.swift in Sources */,
 				C1D6CA9229A6F16200696E5D /* Colors.swift in Sources */,
 				C1D6CA9429A6F16200696E5D /* Coordinator.swift in Sources */,

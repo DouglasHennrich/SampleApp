@@ -12,7 +12,7 @@ enum Colors {
   static let secondary = UIColor(r: 160, g: 108, b: 213)
   static let label = UIColor(r: 226, g: 207, b: 234)
 
-  static let background = UIColor(r: 6, g: 39, b: 38)
+  static let background = UIColor(r: 33, g: 37, b: 41)
   static let backgroundSoft = UIColor(r: 16, g: 43, b: 63)
 }
 

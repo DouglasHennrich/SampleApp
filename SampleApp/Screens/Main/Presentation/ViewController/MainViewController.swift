@@ -20,6 +20,11 @@ final class MainViewController: BaseViewController<MainView> {
     super.viewWillAppear(animated)
     navigationController?.setNavigationBarHidden(true, animated: false)
   }
+
+  // MARK: Actions
+  override func changeUIStateView(_ newState: UIStateViewEnum) {
+    // 
+  }
 }
 
 // MARK: Initialize

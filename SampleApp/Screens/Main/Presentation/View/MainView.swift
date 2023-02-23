@@ -9,10 +9,13 @@ import UIKit
 
 class MainView: UIView {
   // MARK: Properties
+  let leadingPadding: CGFloat = 22
 
   // MARK: Components
   let locationView = LocationView()
   let temperatureLabel = AppLabel()
+  let weatherLabel = AppLabel()
+  let minMaxView = MinMaxView()
 
   // MARK: Init
   override init(frame: CGRect) {
