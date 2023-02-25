@@ -11,10 +11,12 @@ import UIKit
 extension MainView {
   func configureUI() {
     configureSelf()
+    configureComponentsContainer()
     configureLocationView()
     configureTemperatureLabel()
     configureWeatherLabel()
     configureMinMaxView()
+    configureLoadingView()
   }
 
   func configureSelf() {
@@ -22,10 +24,36 @@ extension MainView {
   }
 }
 
+// MARK: Components Container
+private extension MainView {
+  func configureComponentsContainer() {
+    addSubview(componentsContainer)
+
+    configureComponentsContainerConstraints()
+  }
+
+  func configureComponentsContainerConstraints() {
+    componentsContainer.translatesAutoresizingMaskIntoConstraints = false
+
+    NSLayoutConstraint.activate([
+      componentsContainer.topAnchor.constraint(equalTo: topAnchor),
+      componentsContainer.leadingAnchor.constraint(
+        equalTo: leadingAnchor,
+        constant: leadingTrailingPadding
+      ),
+      componentsContainer.trailingAnchor.constraint(
+        equalTo: trailingAnchor,
+        constant: -leadingTrailingPadding
+      ),
+      componentsContainer.bottomAnchor.constraint(equalTo: bottomAnchor)
+    ])
+  }
+}
+
 // MARK: LocationView
 private extension MainView {
   func configureLocationView() {
-    addSubview(locationView)
+    componentsContainer.addSubview(locationView)
 
     configureLocationViewConstraints()
 
@@ -35,7 +63,7 @@ private extension MainView {
   func configureLocationViewConstraints() {
     NSLayoutConstraint.activate([
       locationView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
-      locationView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: leadingPadding)
+      locationView.leadingAnchor.constraint(equalTo: componentsContainer.leadingAnchor)
     ])
   }
 }
@@ -43,7 +71,7 @@ private extension MainView {
 // MARK: Temperature Label
 private extension MainView {
   func configureTemperatureLabel() {
-    addSubview(temperatureLabel)
+    componentsContainer.addSubview(temperatureLabel)
 
     configureTemperatureLabelSpecs()
     configureTemperatureLabelConstraints()
@@ -52,12 +80,13 @@ private extension MainView {
   func configureTemperatureLabelSpecs() {
     temperatureLabel.font = .systemFont(ofSize: 62, weight: .bold)
     temperatureLabel.text = "19º"
+    temperatureLabel.textColor = Colors.primary
   }
 
   func configureTemperatureLabelConstraints() {
     NSLayoutConstraint.activate([
       temperatureLabel.topAnchor.constraint(equalTo: locationView.bottomAnchor, constant: 8),
-      temperatureLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: leadingPadding)
+      temperatureLabel.leadingAnchor.constraint(equalTo: componentsContainer.leadingAnchor)
     ])
   }
 }
@@ -65,7 +94,7 @@ private extension MainView {
 // MARK: Weather Label
 private extension MainView {
   func configureWeatherLabel() {
-    addSubview(weatherLabel)
+    componentsContainer.addSubview(weatherLabel)
 
     configureWeatherLabelSpecs()
     configureWeatherLabelConstraints()
@@ -78,7 +107,7 @@ private extension MainView {
   func configureWeatherLabelConstraints() {
     NSLayoutConstraint.activate([
       weatherLabel.topAnchor.constraint(equalTo: temperatureLabel.bottomAnchor, constant: 8),
-      weatherLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: leadingPadding)
+      weatherLabel.leadingAnchor.constraint(equalTo: componentsContainer.leadingAnchor)
     ])
   }
 }
@@ -86,7 +115,7 @@ private extension MainView {
 // MARK: Min Max View
 private extension MainView {
   func configureMinMaxView() {
-    addSubview(minMaxView)
+    componentsContainer.addSubview(minMaxView)
 
     configureMinMaxViewSpecs()
     configureMinMaxViewConstraints()
@@ -99,7 +128,23 @@ private extension MainView {
   func configureMinMaxViewConstraints() {
     NSLayoutConstraint.activate([
       minMaxView.topAnchor.constraint(equalTo: weatherLabel.bottomAnchor, constant: 6),
-      minMaxView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: leadingPadding)
+      minMaxView.leadingAnchor.constraint(equalTo: componentsContainer.leadingAnchor)
+    ])
+  }
+}
+
+// MARK: LoadingView
+private extension MainView {
+  func configureLoadingView() {
+    addSubview(loadingView)
+
+    configureLoadingViewConstraints()
+  }
+
+  func configureLoadingViewConstraints() {
+    NSLayoutConstraint.activate([
+      loadingView.centerXAnchor.constraint(equalTo: centerXAnchor),
+      loadingView.centerYAnchor.constraint(equalTo: centerYAnchor)
     ])
   }
 }

@@ -13,5 +13,6 @@ target 'SampleApp' do
   use_frameworks!
 
   # Pods for SampleApp
+  pod "Alamofire"
   pod "FLEX", :configurations => ["Debug"]
 end

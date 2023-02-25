@@ -9,17 +9,37 @@ import Foundation
 
 extension AppCoordinator {
   func createMainViewController() -> MainViewController {
-    let viewModel = createMainViewModel()
+    let weatherProvider = createWeatherForecastProvider()
+    let weatherForecastUseCase = createWeatherForecastUseCase(
+      provider: weatherProvider
+    )
+    let viewModel = createMainViewModel(
+      weatherForecastUseCase: weatherForecastUseCase
+    )
     let vc = MainViewController.initialize(viewModel: viewModel)
 
     mainViewModel = viewModel
 
     return vc
   }
+}
 
-  private func createMainViewModel() -> MainViewModelDelegate {
-    let viewModel = MainViewModel()
+private extension AppCoordinator {
+  func createMainViewModel(
+    weatherForecastUseCase: WeatherForecastUseCaseDelegate?
+  ) -> MainViewModelDelegate {
+    let viewModel = MainViewModel(weatherForecastUseCase: weatherForecastUseCase)
 
     return viewModel
+  }
+
+  func createWeatherForecastUseCase(
+    provider: WeatherForecastProviderDelegate?
+  ) -> WeatherForecastUseCaseDelegate? {
+    WeatherForecastUseCase(provider: provider)
+  }
+
+  func createWeatherForecastProvider() -> WeatherForecastProviderDelegate? {
+    WeatherForecastProvider()
   }
 }

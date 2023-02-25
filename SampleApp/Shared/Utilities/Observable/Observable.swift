@@ -7,63 +7,41 @@
 
 import Foundation
 
-class Observable<T> {
-  typealias Listener = ((T) -> Void)
+final class Observable<Value> {
+  // MARK: Properties
+  private var observers: [Observer<Value>] = []
 
-  private(set) var listener: Listener?
-
-  var onSetEvents: Int = 0
-
-  private var justOneFire = false
-
-  func bind(listener: Listener?) {
-    self.listener = listener
-  }
-
-  func bindAndFire(listener: Listener?) {
-    self.listener = listener
-    callListener()
-  }
-
-  func bindOnce(listener: Listener?) {
-    justOneFire = true
-    self.listener = listener
-  }
-
-  var value: T {
+  var value: Value {
     didSet {
-      onSetEvents += 1
-      callListener()
+      notifyObservers()
     }
   }
 
-  init(_ value: T) {
+  // MARK: Init
+  public init(_ value: Value) {
     self.value = value
   }
 
-  func isBinded() -> Bool {
-    return listener != nil
+  // MARK: Actions
+  func observe(on observer: AnyObject, observerBlock: @escaping (Value) -> Void) {
+    observers.append(Observer(observer: observer, block: observerBlock))
+    observerBlock(value)
   }
 
-  func fire() {
-    callListener()
+  func remove(observer: AnyObject) {
+    observers = observers.filter { $0.observer !== observer }
   }
 
-  private func callListener() {
-    if Thread.isMainThread {
-      listener?(value)
-
-      if justOneFire {
-        listener = nil
-      }
-    } else {
-      DispatchQueue.main.async {
-        self.listener?(self.value)
-
-        if self.justOneFire {
-          self.listener = nil
-        }
-      }
+  private func notifyObservers() {
+    for observer in observers {
+      DispatchQueue.main.async { observer.block(self.value) }
     }
+  }
+}
+
+private extension Observable {
+  struct Observer<Value> {
+    weak var observer: AnyObject?
+    let block: (Value) -> Void
   }
 }

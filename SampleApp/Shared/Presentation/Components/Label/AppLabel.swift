@@ -39,5 +39,9 @@ private extension AppLabel {
 
   func configureConstraints() {
     translatesAutoresizingMaskIntoConstraints = false
+
+    NSLayoutConstraint.activate([
+      heightAnchor.constraint(greaterThanOrEqualToConstant: 14)
+    ])
   }
 }

@@ -10,7 +10,7 @@ import Foundation
 enum UIStateViewEnum {
   case normal
   case loading
-  case error(_ error: Error?)
+  case error(_ error: ServiceError?)
   case empty
 }
 

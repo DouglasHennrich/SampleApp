@@ -83,8 +83,10 @@ private extension MinMaxView {
   func configureSelfConstraints() {
     translatesAutoresizingMaskIntoConstraints = false
 
+    backgroundColor = .systemPink
+
     NSLayoutConstraint.activate([
-      heightAnchor.constraint(equalToConstant: 20)
+      heightAnchor.constraint(equalToConstant: 22)
     ])
   }
 }

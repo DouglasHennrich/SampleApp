@@ -14,18 +14,21 @@ final class MainViewController: BaseViewController<MainView> {
   // MARK: Life Cicle
   override func viewDidLoad() {
     super.viewDidLoad()
+    configureBinds()
+
+    customView?.delegate = self
+
+    viewModel?.getWeatherForecast()
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     navigationController?.setNavigationBarHidden(true, animated: false)
   }
-
-  // MARK: Actions
-  override func changeUIStateView(_ newState: UIStateViewEnum) {
-    // 
-  }
 }
+
+// MARK: Conforms to View Delegate
+extension MainViewController: MainViewDelegate {}
 
 // MARK: Initialize
 extension MainViewController {

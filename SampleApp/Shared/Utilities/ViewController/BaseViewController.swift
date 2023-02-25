@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseViewController<T: UIView>: UIViewController, UIStateViewDelegate {
+class BaseViewController<T: UIView>: UIViewController {
   // MARK: Properties
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
@@ -35,9 +35,5 @@ class BaseViewController<T: UIView>: UIViewController, UIStateViewDelegate {
   // MARK: Actions
   func dismissKeyboard() {
     customView?.endEditing(true)
-  }
-
-  func changeUIStateView(_ newState: UIStateViewEnum) {
-    print("Must be implemented")
   }
 }
