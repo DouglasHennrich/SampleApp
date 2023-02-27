@@ -47,7 +47,7 @@
 		C1D6CADE29A810DC00696E5D /* AppConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D6CADD29A810DC00696E5D /* AppConfigs.swift */; };
 		C1D6CAE029A8123B00696E5D /* Configs.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1D6CADF29A8123B00696E5D /* Configs.plist */; };
 		C1D6CAE529AA576F00696E5D /* WeatherForecastUseCaseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D6CAE429AA576F00696E5D /* WeatherForecastUseCaseDelegate.swift */; };
-		C1D6CAEE29AABF9F00696E5D /* SampleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D6CAED29AABF9F00696E5D /* SampleAppTests.swift */; };
+		C1D6CAF929AAFAE600696E5D /* MainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D6CAF829AAFAE600696E5D /* MainViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,7 +105,7 @@
 		C1D6CADF29A8123B00696E5D /* Configs.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Configs.plist; sourceTree = "<group>"; };
 		C1D6CAE429AA576F00696E5D /* WeatherForecastUseCaseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastUseCaseDelegate.swift; sourceTree = "<group>"; };
 		C1D6CAEB29AABF9F00696E5D /* SampleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C1D6CAED29AABF9F00696E5D /* SampleAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleAppTests.swift; sourceTree = "<group>"; };
+		C1D6CAF829AAFAE600696E5D /* MainViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelTests.swift; sourceTree = "<group>"; };
 		F1CD76C90EFED9B8079B12BB /* Pods-SampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.release.xcconfig"; path = "Target Support Files/Pods-SampleApp/Pods-SampleApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -607,9 +607,41 @@
 		C1D6CAEC29AABF9F00696E5D /* SampleAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				C1D6CAED29AABF9F00696E5D /* SampleAppTests.swift */,
+				C1D6CAF429AAF98100696E5D /* Screens */,
 			);
 			path = SampleAppTests;
+			sourceTree = "<group>";
+		};
+		C1D6CAF429AAF98100696E5D /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				C1D6CAF529AAF98500696E5D /* Main */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		C1D6CAF529AAF98500696E5D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C1D6CAF629AAF98900696E5D /* Presentation */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		C1D6CAF629AAF98900696E5D /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				C1D6CAF729AAF98E00696E5D /* ViewModel */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		C1D6CAF729AAF98E00696E5D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C1D6CAF829AAFAE600696E5D /* MainViewModelTests.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -668,6 +700,7 @@
 					};
 					C1D6CAEA29AABF9F00696E5D = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 						TestTargetID = C1D6CA4829A6F07500696E5D;
 					};
 				};
@@ -820,7 +853,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1D6CAEE29AABF9F00696E5D /* SampleAppTests.swift in Sources */,
+				C1D6CAF929AAFAE600696E5D /* MainViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1020,13 +1053,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.yourdev.SampleAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SampleApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SampleApp";
@@ -1037,9 +1077,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.yourdev.SampleAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
