@@ -12,4 +12,8 @@ class MainViewModelTests: XCTestCase {
   func test_should_get_weather_forecast() {
 
   }
+
+  func test_should_set_state_view_to_loading_when_retrieving_weather_forecast() {
+    
+  }
 }
