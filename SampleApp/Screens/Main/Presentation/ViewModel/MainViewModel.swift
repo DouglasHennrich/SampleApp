@@ -31,11 +31,11 @@ extension MainViewModel: MainViewModelDelegate {
 
     weatherForecastUseCase?.execute(request) { [weak self] result in
       guard let self = self else { return }
-      self.stateView.value = .normal
 
       switch result {
         case .success(let weather):
           self.weatherForecast.value = weather
+          self.stateView.value = .normal
 
         case .failure(let error):
           self.stateView.value = .error(error)

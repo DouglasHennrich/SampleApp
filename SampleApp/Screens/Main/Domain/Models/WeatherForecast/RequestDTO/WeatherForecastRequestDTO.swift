@@ -24,3 +24,10 @@ final class WeatherForecastRequestDTO: Encodable {
     case longitude = "lon"
   }
 }
+
+// MARK: Equatable
+extension WeatherForecastRequestDTO: Equatable {
+  static func == (lhs: WeatherForecastRequestDTO, rhs: WeatherForecastRequestDTO) -> Bool {
+    return (lhs.latitude == rhs.latitude) && (lhs.longitude == rhs.longitude)
+  }
+}

@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		56CDBF97D6BEF7A6DB84B723 /* Pods_SampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C9F93D885AA4294C28DF88 /* Pods_SampleApp.framework */; };
+		C1579A0129B7C23200925380 /* WeatherForecastUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1579A0029B7C23200925380 /* WeatherForecastUseCaseTests.swift */; };
+		C1579A0529B7C2B900925380 /* WeatherForecastProviderSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1579A0429B7C2B900925380 /* WeatherForecastProviderSpy.swift */; };
+		C18885AB29B0DF7E00E152CE /* TestsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18885AA29B0DF7E00E152CE /* TestsExtension.swift */; };
+		C18885AE29B1116C00E152CE /* WeatherForecastUseCaseSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18885AD29B1116C00E152CE /* WeatherForecastUseCaseSpy.swift */; };
+		C18885B029B2388E00E152CE /* TestFactories.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18885AF29B2388E00E152CE /* TestFactories.swift */; };
 		C1D6CA5629A6F07500696E5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1D6CA5529A6F07500696E5D /* Assets.xcassets */; };
 		C1D6CA5929A6F07500696E5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1D6CA5729A6F07500696E5D /* LaunchScreen.storyboard */; };
 		C1D6CA8829A6F16200696E5D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D6CA6229A6F16100696E5D /* AppCoordinator.swift */; };
@@ -63,6 +68,11 @@
 /* Begin PBXFileReference section */
 		41D305FE54EF76ED5F0C2526 /* Pods-SampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleApp.debug.xcconfig"; path = "Target Support Files/Pods-SampleApp/Pods-SampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		49C9F93D885AA4294C28DF88 /* Pods_SampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1579A0029B7C23200925380 /* WeatherForecastUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastUseCaseTests.swift; sourceTree = "<group>"; };
+		C1579A0429B7C2B900925380 /* WeatherForecastProviderSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastProviderSpy.swift; sourceTree = "<group>"; };
+		C18885AA29B0DF7E00E152CE /* TestsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsExtension.swift; sourceTree = "<group>"; };
+		C18885AD29B1116C00E152CE /* WeatherForecastUseCaseSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastUseCaseSpy.swift; sourceTree = "<group>"; };
+		C18885AF29B2388E00E152CE /* TestFactories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFactories.swift; sourceTree = "<group>"; };
 		C1D6CA4929A6F07500696E5D /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D6CA5529A6F07500696E5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1D6CA5829A6F07500696E5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -143,6 +153,48 @@
 				49C9F93D885AA4294C28DF88 /* Pods_SampleApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C15799FE29B7C20200925380 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				C15799FF29B7C20800925380 /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		C15799FF29B7C20800925380 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				C1579A0029B7C23200925380 /* WeatherForecastUseCaseTests.swift */,
+				C1579A0229B7C2A500925380 /* Spies */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		C1579A0229B7C2A500925380 /* Spies */ = {
+			isa = PBXGroup;
+			children = (
+				C1579A0429B7C2B900925380 /* WeatherForecastProviderSpy.swift */,
+			);
+			path = Spies;
+			sourceTree = "<group>";
+		};
+		C18885A929B0DF6200E152CE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C18885AA29B0DF7E00E152CE /* TestsExtension.swift */,
+				C18885AF29B2388E00E152CE /* TestFactories.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C18885AC29B1114400E152CE /* Spies */ = {
+			isa = PBXGroup;
+			children = (
+				C18885AD29B1116C00E152CE /* WeatherForecastUseCaseSpy.swift */,
+			);
+			path = Spies;
 			sourceTree = "<group>";
 		};
 		C1D6CA4029A6F07500696E5D = {
@@ -607,6 +659,7 @@
 		C1D6CAEC29AABF9F00696E5D /* SampleAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				C18885A929B0DF6200E152CE /* Helpers */,
 				C1D6CAF429AAF98100696E5D /* Screens */,
 			);
 			path = SampleAppTests;
@@ -623,6 +676,7 @@
 		C1D6CAF529AAF98500696E5D /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				C15799FE29B7C20200925380 /* Domain */,
 				C1D6CAF629AAF98900696E5D /* Presentation */,
 			);
 			path = Main;
@@ -640,6 +694,7 @@
 			isa = PBXGroup;
 			children = (
 				C1D6CAF829AAFAE600696E5D /* MainViewModelTests.swift */,
+				C18885AC29B1114400E152CE /* Spies */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -854,6 +909,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1D6CAF929AAFAE600696E5D /* MainViewModelTests.swift in Sources */,
+				C1579A0129B7C23200925380 /* WeatherForecastUseCaseTests.swift in Sources */,
+				C1579A0529B7C2B900925380 /* WeatherForecastProviderSpy.swift in Sources */,
+				C18885B029B2388E00E152CE /* TestFactories.swift in Sources */,
+				C18885AE29B1116C00E152CE /* WeatherForecastUseCaseSpy.swift in Sources */,
+				C18885AB29B0DF7E00E152CE /* TestsExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1057,6 +1117,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1081,6 +1142,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

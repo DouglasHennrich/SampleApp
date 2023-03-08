@@ -7,7 +7,20 @@
 
 import Foundation
 
-enum UIStateViewEnum {
+enum UIStateViewEnum: Equatable {
+  static func == (lhs: UIStateViewEnum, rhs: UIStateViewEnum) -> Bool {
+    switch (lhs, rhs) {
+      case (.normal, .normal),
+        (.loading, .loading),
+        (.error, .error),
+        (.empty, .empty):
+        return true
+
+      default:
+        return false
+    }
+  }
+
   case normal
   case loading
   case error(_ error: ServiceError?)

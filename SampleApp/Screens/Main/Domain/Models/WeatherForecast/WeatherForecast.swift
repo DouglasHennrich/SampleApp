@@ -25,6 +25,23 @@ final class WeatherForecast: Codable {
     case weather
     case wind
   }
+
+  // MARK: Init
+  init(
+    city: String? = nil,
+    coords: Coords? = nil,
+    mainInfo: MainInfo? = nil,
+    sunInfo: SunInfo? = nil,
+    weather: [WeatherInfo] = [],
+    wind: Wind? = nil
+  ) {
+    self.city = city
+    self.coords = coords
+    self.mainInfo = mainInfo
+    self.sunInfo = sunInfo
+    self.weather = weather
+    self.wind = wind
+  }
 }
 
 // MARK: Computed Variables
@@ -149,5 +166,12 @@ extension WeatherForecast {
 extension WeatherForecast {
   class Wind: Codable {
     var speed: Double?
+  }
+}
+
+// MARK: Equatable
+extension WeatherForecast: Equatable {
+  static func == (lhs: WeatherForecast, rhs: WeatherForecast) -> Bool {
+    return lhs.city == rhs.city
   }
 }

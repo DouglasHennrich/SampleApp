@@ -219,3 +219,27 @@ extension ServiceError {
     }
   }
 }
+
+// MARK: Equatable
+extension ServiceError: Equatable {
+  static func == (lhs: ServiceError, rhs: ServiceError) -> Bool {
+    switch (lhs, rhs) {
+      case (.noConnection, .noConnection),
+        (.timeout, .timeout),
+        (.permanentRedirect, .permanentRedirect),
+        (.badRequest, .badRequest),
+        (.unauthorized, .unauthorized),
+        (.blockedUser, .blockedUser),
+        (.notFound, .notFound),
+        (.internalServerError, .internalServerError),
+        (.cantCreatePayload, .cantCreatePayload),
+        (.cantCreateUrl, .cantCreateUrl),
+        (.noService, .noService),
+        (.unknow, .unknow):
+        return true
+
+      default:
+        return false
+    }
+  }
+}
