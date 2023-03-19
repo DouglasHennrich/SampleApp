@@ -155,14 +155,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C15799FE29B7C20200925380 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				C15799FF29B7C20800925380 /* UseCases */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
 		C15799FF29B7C20800925380 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +170,54 @@
 				C1579A0429B7C2B900925380 /* WeatherForecastProviderSpy.swift */,
 			);
 			path = Spies;
+			sourceTree = "<group>";
+		};
+		C16DEC9A29C78B79004F031A /* Infra */ = {
+			isa = PBXGroup;
+			children = (
+				C1D6CABE29A7D0E800696E5D /* Providers */,
+			);
+			path = Infra;
+			sourceTree = "<group>";
+		};
+		C16DEC9B29C78E75004F031A /* Infra */ = {
+			isa = PBXGroup;
+			children = (
+				C16DEC9C29C78E7A004F031A /* Providers */,
+			);
+			path = Infra;
+			sourceTree = "<group>";
+		};
+		C16DEC9C29C78E7A004F031A /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				C16DEC9D29C78E81004F031A /* WeatherForecast */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		C16DEC9D29C78E81004F031A /* WeatherForecast */ = {
+			isa = PBXGroup;
+			children = (
+				C1D6CAC029A7D10800696E5D /* WeatherForecastProviderDelegate.swift */,
+			);
+			path = WeatherForecast;
+			sourceTree = "<group>";
+		};
+		C16DEC9E29C78E95004F031A /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				C16DEC9F29C78EC4004F031A /* WeatherForecast */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		C16DEC9F29C78EC4004F031A /* WeatherForecast */ = {
+			isa = PBXGroup;
+			children = (
+				C1D6CAE429AA576F00696E5D /* WeatherForecastUseCaseDelegate.swift */,
+			);
+			path = WeatherForecast;
 			sourceTree = "<group>";
 		};
 		C18885A929B0DF6200E152CE /* Helpers */ = {
@@ -269,9 +309,13 @@
 			isa = PBXGroup;
 			children = (
 				C1D6CAA129A7A48100696E5D /* Delegates */,
-				C1D6CABC29A7D0B700696E5D /* Domain */,
-				C1D6CAC529A7D3AE00696E5D /* Infra */,
-				C1D6CABD29A7D0C400696E5D /* Presentation */,
+				C1D6CAB429A7CCD300696E5D /* Models */,
+				C1D6CAAE29A7CAE200696E5D /* UseCases */,
+				C16DEC9A29C78B79004F031A /* Infra */,
+				C1D6CA6C29A6F16100696E5D /* Components */,
+				C1D6CA6F29A6F16100696E5D /* View */,
+				C1D6CA7329A6F16100696E5D /* ViewController */,
+				C1D6CA6A29A6F16100696E5D /* ViewModel */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -332,9 +376,9 @@
 			isa = PBXGroup;
 			children = (
 				C1D6CA7629A6F16200696E5D /* Constants */,
+				C1D6CA8529A6F16200696E5D /* Components */,
 				C1D6CAD429A7EE1A00696E5D /* Extensions */,
 				C1D6CACC29A7E7EC00696E5D /* Infra */,
-				C1D6CACB29A7E7E500696E5D /* Presentation */,
 				C1D6CA7929A6F16200696E5D /* Utilities */,
 			);
 			path = Shared;
@@ -353,11 +397,11 @@
 		C1D6CA7929A6F16200696E5D /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				C1D6CA7A29A6F16200696E5D /* ViewModel */,
 				C1D6CA7C29A6F16200696E5D /* Coordinator */,
 				C1D6CA7E29A6F16200696E5D /* Observable */,
-				C1D6CA8029A6F16200696E5D /* ViewController */,
 				C1D6CA8229A6F16200696E5D /* UIStateView */,
+				C1D6CA7A29A6F16200696E5D /* ViewModel */,
+				C1D6CA8029A6F16200696E5D /* ViewController */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -447,6 +491,8 @@
 		C1D6CAA129A7A48100696E5D /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
+				C16DEC9B29C78E75004F031A /* Infra */,
+				C16DEC9E29C78E95004F031A /* UseCases */,
 				C1D6CAA229A7A48700696E5D /* View */,
 				C1D6CAA529A7A4A700696E5D /* ViewModel */,
 			);
@@ -513,30 +559,9 @@
 		C1D6CAB829A7CF7E00696E5D /* WeatherForecast */ = {
 			isa = PBXGroup;
 			children = (
-				C1D6CAE329AA576500696E5D /* Delegate */,
-				C1D6CAE629AA577F00696E5D /* Implementations */,
+				C1D6CAAF29A7CAFF00696E5D /* WeatherForecastUseCase.swift */,
 			);
 			path = WeatherForecast;
-			sourceTree = "<group>";
-		};
-		C1D6CABC29A7D0B700696E5D /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				C1D6CAB429A7CCD300696E5D /* Models */,
-				C1D6CAAE29A7CAE200696E5D /* UseCases */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		C1D6CABD29A7D0C400696E5D /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-				C1D6CA6C29A6F16100696E5D /* Components */,
-				C1D6CA6F29A6F16100696E5D /* View */,
-				C1D6CA7329A6F16100696E5D /* ViewController */,
-				C1D6CA6A29A6F16100696E5D /* ViewModel */,
-			);
-			path = Presentation;
 			sourceTree = "<group>";
 		};
 		C1D6CABE29A7D0E800696E5D /* Providers */ = {
@@ -550,34 +575,9 @@
 		C1D6CABF29A7D0F600696E5D /* WeatherForecast */ = {
 			isa = PBXGroup;
 			children = (
-				C1D6CAE229A92D5300696E5D /* Delegate */,
-				C1D6CAC229A7D13A00696E5D /* Implementations */,
-			);
-			path = WeatherForecast;
-			sourceTree = "<group>";
-		};
-		C1D6CAC229A7D13A00696E5D /* Implementations */ = {
-			isa = PBXGroup;
-			children = (
 				C1D6CAC329A7D15100696E5D /* WeatherForecastProvider.swift */,
 			);
-			path = Implementations;
-			sourceTree = "<group>";
-		};
-		C1D6CAC529A7D3AE00696E5D /* Infra */ = {
-			isa = PBXGroup;
-			children = (
-				C1D6CABE29A7D0E800696E5D /* Providers */,
-			);
-			path = Infra;
-			sourceTree = "<group>";
-		};
-		C1D6CACB29A7E7E500696E5D /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-				C1D6CA8529A6F16200696E5D /* Components */,
-			);
-			path = Presentation;
+			path = WeatherForecast;
 			sourceTree = "<group>";
 		};
 		C1D6CACC29A7E7EC00696E5D /* Infra */ = {
@@ -632,30 +632,6 @@
 			path = RequestDTO;
 			sourceTree = "<group>";
 		};
-		C1D6CAE229A92D5300696E5D /* Delegate */ = {
-			isa = PBXGroup;
-			children = (
-				C1D6CAC029A7D10800696E5D /* WeatherForecastProviderDelegate.swift */,
-			);
-			path = Delegate;
-			sourceTree = "<group>";
-		};
-		C1D6CAE329AA576500696E5D /* Delegate */ = {
-			isa = PBXGroup;
-			children = (
-				C1D6CAE429AA576F00696E5D /* WeatherForecastUseCaseDelegate.swift */,
-			);
-			path = Delegate;
-			sourceTree = "<group>";
-		};
-		C1D6CAE629AA577F00696E5D /* Implementations */ = {
-			isa = PBXGroup;
-			children = (
-				C1D6CAAF29A7CAFF00696E5D /* WeatherForecastUseCase.swift */,
-			);
-			path = Implementations;
-			sourceTree = "<group>";
-		};
 		C1D6CAEC29AABF9F00696E5D /* SampleAppTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -676,18 +652,10 @@
 		C1D6CAF529AAF98500696E5D /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				C15799FE29B7C20200925380 /* Domain */,
-				C1D6CAF629AAF98900696E5D /* Presentation */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
-		C1D6CAF629AAF98900696E5D /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
+				C15799FF29B7C20800925380 /* UseCases */,
 				C1D6CAF729AAF98E00696E5D /* ViewModel */,
 			);
-			path = Presentation;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		C1D6CAF729AAF98E00696E5D /* ViewModel */ = {

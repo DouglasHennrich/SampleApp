@@ -10,3 +10,4 @@ import Foundation
 protocol BaseViewModelDelegate: AnyObject {
   var stateView: Observable<UIStateViewEnum> { get set }
 }
+
